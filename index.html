@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>株式会社優和工業｜霧島・隼人 ｜ 外構・リフォーム・清掃・営業代行・ネットショップ</title>
+<meta name="description" content="鹿児島県霧島市隼人町。株式会社優和工業は、エクステリア外構・リフォーム・建物清掃・営業代行・国内ネットショップ運営を通じて、暮らしの環境を外から内へと整えます。">
+<meta name="theme-color" content="#0B1A1F">
+<meta property="og:type" content="website">
+<meta property="og:title" content="株式会社優和工業">
+<meta property="og:description" content="水のように、暮らしをめぐる。霧島・隼人から、外構からリフォーム、清掃、空気と水、そして肌まで。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   株式会社優和工業 ブランドサイト
+   コンセプト：天降川（あもりがわ）— 水のように、暮らしをめぐる。
+   霧島連山に降った雨が、隼人の地を潤し、錦江湾へ還る。
+   その循環を、5つの事業（外構→リフォーム→清掃→空気と水→肌）に重ねる。
+   ========================================================= */
+
+:root{
+  --ink:        #0B1A1F;   /* 深霧：ベース */
+  --ink-2:      #10262E;   /* 山藍：セクション面 */
+  --ink-3:      #16333C;   /* 稜線：境界 */
+  --aqua:       #7FD3C3;   /* 湧水：主アクセント */
+  --aqua-deep:  #2E7F78;   /* 淵：沈んだ水 */
+  --shu:        #C1553F;   /* 天降の朱：鹿児島神宮の丹 */
+  --washi:      #EDE8DC;   /* 和紙：文字色 */
+  --washi-dim:  rgba(237,232,220,.62);
+  --washi-faint:rgba(237,232,220,.34);
+  --line:       rgba(127,211,195,.20);
+
+  --serif: "Zen Old Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  --sans: "Zen Kaku Gothic New", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  --latin: "Cormorant Garamond", serif;
+
+  --pad: clamp(20px, 5vw, 72px);
+  --rail-w: 92px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--washi);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.95;
+  letter-spacing:.045em;
+  overflow-x:hidden;
+  font-feature-settings:"palt" 1;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+:focus-visible{ outline:2px solid var(--aqua); outline-offset:4px; }
+
+/* ---------- 共通パーツ ---------- */
+.wrap{ width:min(1180px, 100%); margin-inline:auto; padding-inline:var(--pad); }
+.sec{ position:relative; padding-block:clamp(84px, 12vw, 156px); }
+.eyebrow{
+  font-family:var(--mono); font-size:11px; letter-spacing:.34em;
+  color:var(--aqua); text-transform:uppercase; margin:0 0 18px;
+  display:flex; align-items:center; gap:12px;
+}
+.eyebrow::before{ content:""; width:38px; height:1px; background:var(--aqua); opacity:.6; }
+.h2{
+  font-family:var(--serif); font-weight:600;
+  font-size:clamp(27px, 4.4vw, 43px); line-height:1.5;
+  letter-spacing:.06em; margin:0 0 26px;
+}
+.lead{ max-width:62ch; color:var(--washi-dim); font-size:clamp(14px,1.6vw,16px); margin:0; }
+.kicker-latin{ font-family:var(--latin); font-style:italic; font-size:14px; letter-spacing:.08em; color:var(--washi-faint); }
+
+.reveal{ opacity:0; transform:translateY(26px); transition:opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); }
+.reveal.in{ opacity:1; transform:none; }
+.reveal[data-d="1"]{ transition-delay:.1s } .reveal[data-d="2"]{ transition-delay:.2s }
+.reveal[data-d="3"]{ transition-delay:.3s } .reveal[data-d="4"]{ transition-delay:.4s }
+
+.verify{
+  display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:.16em;
+  color:var(--shu); border:1px solid var(--shu); border-radius:2px;
+  padding:1px 7px; margin-inline-start:8px; vertical-align:2px; white-space:nowrap;
+}
+
+/* ---------- ヘッダー ---------- */
+.hdr{
+  position:fixed; inset:0 0 auto 0; z-index:60;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px var(--pad);
+  transition:background .5s ease, backdrop-filter .5s ease, padding .5s ease;
+}
+.hdr.scrolled{ background:rgba(11,26,31,.82); backdrop-filter:blur(14px); padding-block:12px; border-bottom:1px solid var(--line); }
+.brand{ display:flex; align-items:baseline; gap:12px; }
+.brand .jp{ font-family:var(--serif); font-size:19px; letter-spacing:.16em; font-weight:600; }
+.brand .en{ font-family:var(--mono); font-size:9.5px; letter-spacing:.3em; color:var(--aqua); }
+.nav{ display:flex; gap:30px; align-items:center; }
+.nav a{ font-size:12.5px; letter-spacing:.16em; color:var(--washi-dim); position:relative; padding-block:6px; }
+.nav a::after{ content:""; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--aqua); transition:width .45s ease; }
+.nav a:hover{ color:var(--washi); } .nav a:hover::after{ width:100%; }
+.burger{ display:none; width:40px; height:40px; background:none; border:0; cursor:pointer; padding:10px; }
+.burger span{ display:block; height:1px; background:var(--washi); margin:5px 0; transition:transform .4s, opacity .3s; }
+.burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+@media (max-width:880px){
+  .burger{ display:block; }
+  .nav{
+    position:fixed; inset:0; background:rgba(11,26,31,.97); backdrop-filter:blur(8px);
+    flex-direction:column; justify-content:center; gap:26px;
+    opacity:0; pointer-events:none; transition:opacity .45s ease;
+  }
+  .nav.open{ opacity:1; pointer-events:auto; }
+  .nav a{ font-size:16px; font-family:var(--serif); letter-spacing:.24em; }
+}
+
+/* ---------- 天降川レール（シグネチャー） ---------- */
+.rail{
+  position:fixed; left:0; top:0; width:var(--rail-w); height:100vh; z-index:40;
+  pointer-events:none; display:none;
+}
+.rail svg{ width:100%; height:100%; }
+.rail .bed{ fill:none; stroke:rgba(237,232,220,.10); stroke-width:1; }
+.rail .flow{ fill:none; stroke:var(--aqua); stroke-width:1.4; opacity:.85; filter:drop-shadow(0 0 6px rgba(127,211,195,.45)); }
+.rail .node{ fill:var(--ink); stroke:rgba(237,232,220,.28); stroke-width:1; transition:stroke .5s, fill .5s; }
+.rail .node.lit{ fill:var(--aqua); stroke:var(--aqua); }
+.rail .drop{ fill:var(--aqua); filter:drop-shadow(0 0 9px rgba(127,211,195,.9)); }
+.rail .halo{ fill:rgba(127,211,195,.16); }
+.rail-label{
+  position:absolute; left:52px; font-family:var(--mono); font-size:9.5px; letter-spacing:.22em;
+  color:var(--washi-faint); white-space:nowrap; transform:translateY(-50%);
+  transition:color .5s ease, opacity .5s ease; opacity:.55;
+}
+.rail-label.lit{ color:var(--aqua); opacity:1; }
+@media (min-width:1180px){ .rail{ display:block; } }
+
+/* ---------- ヒーロー ---------- */
+.hero{ position:relative; min-height:100svh; display:flex; align-items:flex-end; overflow:hidden; }
+.hero-media{ position:absolute; inset:0; }
+.hero-media img{ width:100%; height:100%; object-fit:cover; opacity:.42; transform:scale(1.06); }
+.hero-media::after{
+  content:""; position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(11,26,31,.72) 0%, rgba(11,26,31,.30) 40%, rgba(11,26,31,.95) 100%),
+    linear-gradient(90deg, rgba(11,26,31,.85) 0%, rgba(11,26,31,0) 62%);
+}
+#mist{ position:absolute; inset:0; width:100%; height:100%; mix-blend-mode:screen; opacity:.5; }
+.hero-inner{ position:relative; z-index:2; width:100%; padding-bottom:clamp(56px,9vw,104px); }
+.hero-copy{ display:flex; align-items:flex-start; gap:clamp(20px,4vw,54px); }
+.hero-title{
+  font-family:var(--serif); font-weight:600;
+  font-size:clamp(30px, 5.6vw, 62px); line-height:1.72; letter-spacing:.2em;
+  margin:0; text-shadow:0 2px 30px rgba(0,0,0,.5);
+}
+.hero-sub{ margin-top:26px; max-width:34ch; color:var(--washi-dim); font-size:14px; line-height:2.2; }
+.hero-meta{ margin-top:34px; font-family:var(--mono); font-size:10.5px; letter-spacing:.24em; color:var(--aqua); }
+.hero-meta span{ color:var(--washi-faint); }
+@media (min-width:900px){
+  .hero-title{ writing-mode:vertical-rl; text-orientation:upright; height:min(58vh,520px); }
+  .hero-copy{ flex-direction:row-reverse; justify-content:flex-end; }
+  .hero-side{ align-self:flex-end; }
+}
+.scroll-cue{
+  position:absolute; right:var(--pad); bottom:34px; z-index:3;
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.28em; color:var(--washi-faint);
+  writing-mode:vertical-rl; display:flex; align-items:center; gap:12px;
+}
+.scroll-cue::after{ content:""; width:1px; height:60px; background:linear-gradient(var(--aqua), transparent); animation:drip 2.6s ease-in-out infinite; }
+@keyframes drip{ 0%{transform:scaleY(.2); transform-origin:top; opacity:0} 40%{opacity:1} 100%{transform:scaleY(1); transform-origin:top; opacity:0} }
+
+/* ---------- コンセプト ---------- */
+.concept{ background:linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%); }
+.concept-grid{ display:grid; grid-template-columns:1fr; gap:clamp(34px,5vw,72px); align-items:center; }
+@media (min-width:900px){ .concept-grid{ grid-template-columns:1.05fr .95fr; } }
+.kanji-pair{ display:flex; gap:26px; margin:0 0 34px; }
+.kanji{ text-align:center; }
+.kanji b{ display:block; font-family:var(--serif); font-size:clamp(44px,7vw,74px); font-weight:400; line-height:1; color:var(--aqua); }
+.kanji small{ display:block; margin-top:12px; font-family:var(--mono); font-size:9.5px; letter-spacing:.2em; color:var(--washi-faint); }
+.concept p{ color:var(--washi-dim); font-size:15px; margin:0 0 18px; }
+.concept-media{ position:relative; }
+.concept-media img{ width:100%; aspect-ratio:4/5; object-fit:cover; filter:saturate(.75) contrast(1.05); }
+.concept-media::after{ content:""; position:absolute; inset:0; background:linear-gradient(200deg, rgba(11,26,31,.1), rgba(11,26,31,.6)); }
+.concept-cap{
+  position:absolute; z-index:2; left:-18px; bottom:26px;
+  background:var(--ink); border-left:2px solid var(--shu);
+  padding:12px 18px; font-family:var(--mono); font-size:10px; letter-spacing:.18em; color:var(--washi-dim);
+}
+
+/* ---------- 事業（五つの流れ） ---------- */
+.biz{ background:var(--ink-2); }
+.biz-head{ display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:clamp(40px,6vw,72px); }
+.biz-list{ display:grid; gap:2px; background:var(--line); border-block:1px solid var(--line); }
+.biz-item{
+  background:var(--ink-2); display:grid; grid-template-columns:1fr; gap:0;
+  transition:background .6s ease;
+}
+.biz-item:hover{ background:var(--ink-3); }
+@media (min-width:820px){
+  .biz-item{ grid-template-columns:104px 1.15fr 1fr; align-items:stretch; }
+}
+.biz-num{
+  padding:30px 0 0 30px; font-family:var(--serif); font-size:26px; color:var(--aqua);
+  letter-spacing:.1em; line-height:1;
+}
+.biz-num em{ display:block; font-family:var(--mono); font-style:normal; font-size:9.5px; color:var(--washi-faint); letter-spacing:.2em; margin-top:10px; }
+.biz-body{ padding:26px 30px 34px; }
+.biz-body h3{ font-family:var(--serif); font-size:clamp(19px,2.4vw,25px); font-weight:600; letter-spacing:.1em; margin:0 0 6px; }
+.biz-body .en{ font-family:var(--latin); font-style:italic; font-size:13px; color:var(--aqua); letter-spacing:.06em; }
+.biz-body p{ margin:16px 0 0; font-size:13.5px; color:var(--washi-dim); line-height:2.05; }
+.tags{ list-style:none; padding:0; margin:18px 0 0; display:flex; flex-wrap:wrap; gap:8px; }
+.tags li{ font-family:var(--mono); font-size:10px; letter-spacing:.12em; color:var(--washi-faint); border:1px solid var(--line); padding:3px 9px; border-radius:1px; }
+.biz-fig{ position:relative; overflow:hidden; min-height:210px; }
+.biz-fig img{ width:100%; height:100%; object-fit:cover; opacity:.62; transition:transform 1.4s cubic-bezier(.2,.7,.2,1), opacity .8s; }
+.biz-item:hover .biz-fig img{ transform:scale(1.06); opacity:.82; }
+.biz-fig::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg, var(--ink-2), rgba(16,38,46,0) 55%); }
+
+/* ---------- 循環図 ---------- */
+.cycle{ background:var(--ink); }
+.cycle-wrap{ display:grid; gap:clamp(34px,5vw,64px); grid-template-columns:1fr; align-items:center; }
+@media (min-width:960px){ .cycle-wrap{ grid-template-columns:.9fr 1.1fr; } }
+.cycle svg{ width:100%; height:auto; }
+.cyc-path{ fill:none; stroke:var(--line); stroke-width:1; }
+.cyc-active{ fill:none; stroke:var(--aqua); stroke-width:1.6; stroke-linecap:round; filter:drop-shadow(0 0 6px rgba(127,211,195,.4)); }
+.cyc-dot{ fill:var(--ink); stroke:var(--aqua); stroke-width:1.2; }
+.cyc-label{ font-family:var(--mono); font-size:9px; letter-spacing:.14em; fill:var(--washi-dim); }
+.cyc-jp{ font-family:var(--serif); font-size:13px; fill:var(--washi); letter-spacing:.08em; }
+.cycle-notes{ list-style:none; margin:28px 0 0; padding:0; }
+.cycle-notes li{ border-top:1px solid var(--line); padding:16px 0; display:grid; grid-template-columns:64px 1fr; gap:14px; align-items:baseline; }
+.cycle-notes b{ font-family:var(--mono); font-size:10px; letter-spacing:.18em; color:var(--aqua); font-weight:500; }
+.cycle-notes span{ font-size:13.5px; color:var(--washi-dim); }
+
+/* ---------- 実績ギャラリー ---------- */
+.works{ background:var(--ink-2); }
+.gal{ display:grid; grid-template-columns:repeat(2,1fr); gap:2px; }
+@media (min-width:860px){ .gal{ grid-template-columns:repeat(12,1fr); grid-auto-rows:120px; } }
+.gal figure{ position:relative; margin:0; overflow:hidden; background:var(--ink-3); }
+.gal img{ width:100%; height:100%; object-fit:cover; opacity:.72; transition:transform 1.6s cubic-bezier(.2,.7,.2,1), opacity .7s; }
+.gal figure:hover img{ transform:scale(1.07); opacity:1; }
+.gal figcaption{
+  position:absolute; left:0; bottom:0; padding:12px 14px;
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.18em; color:var(--washi);
+  background:linear-gradient(0deg, rgba(11,26,31,.9), transparent);
+  width:100%;
+}
+@media (max-width:859px){ .gal figure{ aspect-ratio:4/3; } }
+@media (min-width:860px){
+  .g1{ grid-column:span 7; grid-row:span 3; }
+  .g2{ grid-column:span 5; grid-row:span 3; }
+  .g3{ grid-column:span 4; grid-row:span 2; }
+  .g4{ grid-column:span 4; grid-row:span 2; }
+  .g5{ grid-column:span 4; grid-row:span 2; }
+  .g6{ grid-column:span 12; grid-row:span 2; }
+}
+.works-note{ margin-top:22px; font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--washi-faint); }
+
+/* ---------- 代表メッセージ ---------- */
+.msg{ background:linear-gradient(180deg, var(--ink-2), var(--ink)); position:relative; overflow:hidden; }
+.msg::before{
+  content:""; position:absolute; right:-12%; top:-20%; width:60vw; height:120%;
+  background:radial-gradient(ellipse at center, rgba(127,211,195,.10), transparent 62%);
+  pointer-events:none;
+}
+.msg-grid{ display:grid; gap:clamp(30px,5vw,60px); grid-template-columns:1fr; }
+@media (min-width:900px){ .msg-grid{ grid-template-columns:1fr auto; align-items:start; } }
+.msg-body p{ color:var(--washi-dim); font-size:14.5px; margin:0 0 20px; max-width:56ch; }
+.msg-sign{ margin-top:34px; display:flex; align-items:baseline; gap:16px; }
+.msg-sign small{ font-family:var(--mono); font-size:10px; letter-spacing:.2em; color:var(--washi-faint); }
+.msg-sign b{ font-family:var(--serif); font-size:22px; font-weight:600; letter-spacing:.22em; }
+.msg-vert{
+  font-family:var(--serif); font-size:clamp(20px,2.6vw,27px); letter-spacing:.24em; line-height:2.1;
+  color:var(--washi);
+}
+@media (min-width:900px){
+  .msg-vert{ writing-mode:vertical-rl; text-orientation:upright; height:340px; border-right:1px solid var(--line); padding-right:30px; }
+}
+.draft-note{ margin-top:26px; font-family:var(--mono); font-size:10px; letter-spacing:.12em; color:var(--shu); }
+
+/* ---------- 会社概要 ---------- */
+.company{ background:var(--ink); }
+.tbl{ width:100%; border-collapse:collapse; margin-top:8px; }
+.tbl th,.tbl td{ text-align:left; vertical-align:top; padding:18px 8px; border-bottom:1px solid var(--line); font-weight:400; }
+.tbl th{ width:180px; font-family:var(--mono); font-size:10.5px; letter-spacing:.18em; color:var(--aqua); padding-top:22px; }
+.tbl td{ font-size:14px; color:var(--washi-dim); }
+.tbl td ul{ margin:0; padding-left:1.1em; }
+.tbl td li{ margin-bottom:4px; }
+@media (max-width:720px){
+  .tbl th,.tbl td{ display:block; width:auto; border:0; padding:0; }
+  .tbl th{ padding-top:22px; }
+  .tbl td{ padding:8px 0 18px; border-bottom:1px solid var(--line); }
+}
+.map-strip{
+  margin-top:44px; border:1px solid var(--line); padding:26px 28px;
+  display:grid; gap:20px; grid-template-columns:1fr;
+}
+@media (min-width:760px){ .map-strip{ grid-template-columns:1fr 1fr; align-items:center; } }
+.map-strip .addr{ font-family:var(--serif); font-size:clamp(16px,2vw,20px); letter-spacing:.1em; line-height:2; }
+.map-strip .geo{ font-family:var(--mono); font-size:10px; letter-spacing:.16em; color:var(--washi-faint); margin-top:12px; }
+
+/* ---------- フッター ---------- */
+.ftr{ background:var(--ink); border-top:1px solid var(--line); padding:56px var(--pad) 40px; }
+.ftr-in{ width:min(1180px,100%); margin-inline:auto; display:grid; gap:28px; grid-template-columns:1fr; }
+@media (min-width:820px){ .ftr-in{ grid-template-columns:1.3fr 1fr; align-items:end; } }
+.ftr .brand .jp{ font-size:22px; }
+.ftr-tag{ margin-top:14px; font-size:12.5px; color:var(--washi-faint); letter-spacing:.1em; }
+.ftr-nav{ display:flex; flex-wrap:wrap; gap:18px 26px; }
+.ftr-nav a{ font-family:var(--mono); font-size:10px; letter-spacing:.2em; color:var(--washi-dim); }
+.ftr-nav a:hover{ color:var(--aqua); }
+.copy{ margin-top:40px; font-family:var(--mono); font-size:9.5px; letter-spacing:.18em; color:var(--washi-faint); }
+
+/* ---------- モーション配慮 ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+  .reveal{ opacity:1; transform:none; }
+  #mist{ display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ ヘッダー ============ -->
+<header class="hdr" id="hdr">
+  <a class="brand" href="#top" aria-label="株式会社優和工業 トップへ">
+    <span class="jp">優和工業</span>
+    <span class="en">YUWA KOGYO</span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#concept">理念</a>
+    <a href="#business">事業</a>
+    <a href="#cycle">一貫体制</a>
+    <a href="#works">仕事</a>
+    <a href="#message">代表挨拶</a>
+    <a href="#company">会社概要</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ============ シグネチャー：天降川レール ============ -->
+<!-- 霧島連山→天降川→隼人の里→錦江湾。スクロール量に応じて水滴が流路を下る -->
+<div class="rail" id="rail" aria-hidden="true">
+  <svg viewBox="0 0 92 800" preserveAspectRatio="none" id="railSvg">
+    <path id="railPath" class="bed" d="M46 -20 C 20 110, 72 180, 46 300 C 22 410, 74 470, 46 580 C 26 670, 62 720, 46 820"/>
+    <path id="railFlow" class="flow" d="M46 -20 C 20 110, 72 180, 46 300 C 22 410, 74 470, 46 580 C 26 670, 62 720, 46 820"/>
+    <g id="railNodes"></g>
+    <circle id="railHalo" class="halo" r="13" cx="46" cy="0"/>
+    <circle id="railDrop" class="drop" r="4.4" cx="46" cy="0"/>
+  </svg>
+</div>
+
+<!-- ============ ヒーロー ============ -->
+<main id="top">
+<section class="hero">
+  <div class="hero-media">
+    <!-- 差替推奨：霧島連山／天降川の自社撮影素材へ -->
+    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=2000&q=80"
+         onerror="this.onerror=null;this.src='https://picsum.photos/2000/1200?grayscale&blur=1';"
+         alt="霧の稜線と山あいの風景">
+  </div>
+  <canvas id="mist"></canvas>
+  <div class="hero-inner wrap">
+    <div class="hero-copy">
+      <h1 class="hero-title">水は暮らしを<br>めぐる。</h1>
+      <div class="hero-side">
+        <p class="kicker-latin">Amori-gawa, Hayato.</p>
+        <p class="hero-sub">
+          霧島に降った雨は、地を巡り、隼人の里を潤して海へ還る。<br>
+          株式会社優和工業は、土地を整え、住まいを直し、建物を清め、
+          空気と水を送り、肌にふれるものを届ける。<br>
+          外から内へ、暮らしの環境をひと続きに整える会社です。
+        </p>
+        <p class="hero-meta">KIRISHIMA <span>／</span> KAGOSHIMA <span>／</span> EST. <span>要確認</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue">SCROLL</div>
+</section>
+
+<!-- ============ コンセプト ============ -->
+<section class="sec concept" id="concept" data-rail="理念 / PHILOSOPHY">
+  <div class="wrap concept-grid">
+    <div class="reveal">
+      <p class="eyebrow">Philosophy</p>
+      <div class="kanji-pair">
+        <div class="kanji"><b>優</b><small>YASASHISA</small></div>
+        <div class="kanji"><b>和</b><small>CHOUWA</small></div>
+      </div>
+      <h2 class="h2">やわらかく、ととのえる</h2>
+      <p>
+        社名の「優和」は、人にやさしいこと、そして周囲と和すること。
+        私たちの仕事は、どれも誰かの生活の背景にあります。
+        門扉のおさまり、床の段差、窓ガラスの曇り、部屋の空気、蛇口から出る水。
+        意識されないほど自然であることが、いちばん良い状態だと考えています。
+      </p>
+      <p>
+        隼人町を流れる天降川は、山からの水を里へ運び、田畑と暮らしを支えてきました。
+        私たちも同じように、外構から住まいの中へ、そして日々使うものへと、
+        途切れない流れとして地域の環境を整えていきます。
+      </p>
+    </div>
+    <div class="concept-media reveal" data-d="2">
+      <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=80"
+           onerror="this.onerror=null;this.src='https://picsum.photos/1000/1250?grayscale';"
+           alt="木漏れ日の差す森">
+      <p class="concept-cap">天降川水系 ／ 霧島市隼人町</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 事業（五つの流れ） ============ -->
+<section class="sec biz" id="business" data-rail="事業 / BUSINESS">
+  <div class="wrap">
+    <div class="biz-head reveal">
+      <div>
+        <p class="eyebrow">Business</p>
+        <h2 class="h2">五つの流れ</h2>
+      </div>
+      <p class="lead">
+        敷地の外側から、建物、空気と水、そして肌へ。
+        優和工業の事業は、暮らしに近づいていく順に並んでいます。
+      </p>
+    </div>
+
+    <div class="biz-list">
+      <!-- 一 -->
+      <article class="biz-item reveal">
+        <div class="biz-num">一<em>01</em></div>
+        <div class="biz-body">
+          <h3>エクステリア外構</h3>
+          <p class="en">Exterior &amp; Landscape</p>
+          <p>駐車場、門まわり、フェンス、土間、植栽。敷地の高低差と水の抜け道を読み、雨のあとに水たまりが残らない土地をつくります。建物の外側は、いちばん先に人の目に触れる場所です。</p>
+          <ul class="tags"><li>カーポート</li><li>土間コンクリート</li><li>擁壁・ブロック</li><li>フェンス・門扉</li><li>植栽・ガーデン</li></ul>
+        </div>
+        <div class="biz-fig">
+          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1200&q=80"
+               onerror="this.onerror=null;this.src='https://picsum.photos/900/600?grayscale';" alt="緑の植栽と外構">
+        </div>
+      </article>
+      <!-- 二 -->
+      <article class="biz-item reveal">
+        <div class="biz-num">二<em>02</em></div>
+        <div class="biz-body">
+          <h3>リフォーム</h3>
+          <p class="en">Renovation</p>
+          <p>水まわりの更新から内装、間取りの見直しまで。今ある建物の骨格を活かし、使う人の動きに合わせて整えます。工事後の暮らし方まで含めて、無理のない計画をご提案します。</p>
+          <ul class="tags"><li>キッチン・浴室</li><li>内装・クロス</li><li>床・建具</li><li>間取り変更</li><li>バリアフリー</li></ul>
+        </div>
+        <div class="biz-fig">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+               onerror="this.onerror=null;this.src='https://picsum.photos/901/600?grayscale';" alt="改装された住まいの内装">
+        </div>
+      </article>
+      <!-- 三 -->
+      <article class="biz-item reveal">
+        <div class="biz-num">三<em>03</em></div>
+        <div class="biz-body">
+          <h3>ビル・建物清掃</h3>
+          <p class="en">Building Maintenance</p>
+          <p>オフィスビル、店舗、集合住宅の日常清掃と定期清掃。床の洗浄、ガラス、共用部の巡回まで、決めた基準どおりに手を入れ続けます。きれいな状態を「保つ」ことが仕事です。</p>
+          <ul class="tags"><li>日常清掃</li><li>定期清掃</li><li>床洗浄・ワックス</li><li>ガラス清掃</li><li>共用部管理</li></ul>
+        </div>
+        <div class="biz-fig">
+          <img src="https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=1200&q=80"
+               onerror="this.onerror=null;this.src='https://picsum.photos/902/600?grayscale';" alt="清掃された明るい床面">
+        </div>
+      </article>
+      <!-- 四 -->
+      <article class="biz-item reveal">
+        <div class="biz-num">四<em>04</em></div>
+        <div class="biz-body">
+          <h3>営業代行（空気清浄機・浄水器）</h3>
+          <p class="en">Sales Agency</p>
+          <p>空気清浄機や浄水器など、住環境にかかわる機器の販売支援。メーカーや販売元に代わって、商品の説明から導入後のフォローまでを担います。売り込むのではなく、必要な人に必要な分だけ届けます。</p>
+          <ul class="tags"><li>空気清浄機</li><li>浄水器</li><li>販売支援</li><li>導入サポート</li></ul>
+        </div>
+        <div class="biz-fig">
+          <img src="https://images.pexels.com/photos/7402619/pexels-photo-7402619.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"
+               onerror="this.onerror=null;this.src='https://picsum.photos/903/600?grayscale';" alt="自然光の下に置かれた水のグラス">
+        </div>
+      </article>
+      <!-- 五 -->
+      <article class="biz-item reveal">
+        <div class="biz-num">五<em>05</em></div>
+        <div class="biz-body">
+          <h3>国内ネットショップ運営</h3>
+          <p class="en">E-Commerce</p>
+          <p>化粧品を中心とした国内向けオンライン販売。商品の選定、ページづくり、在庫と出荷までを自社で運営しています。手にとった人の毎日が少し軽くなるものを選んでいます。</p>
+          <ul class="tags"><li>化粧品</li><li>商品企画・選定</li><li>ページ制作</li><li>受注・出荷</li></ul>
+        </div>
+        <div class="biz-fig">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80"
+               onerror="this.onerror=null;this.src='https://picsum.photos/904/600?grayscale';" alt="化粧品のボトル">
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 一貫体制（循環図） ============ -->
+<section class="sec cycle" id="cycle" data-rail="一貫体制 / CYCLE">
+  <div class="wrap cycle-wrap">
+    <div class="reveal">
+      <svg viewBox="0 0 320 320" role="img" aria-label="外構・リフォーム・清掃・空気と水・肌の循環を示す図">
+        <circle cx="160" cy="160" r="118" class="cyc-path"/>
+        <circle cx="160" cy="160" r="118" class="cyc-active" id="cycRing"
+                transform="rotate(-90 160 160)"/>
+        <circle cx="160" cy="42"  r="5.5" class="cyc-dot"/>
+        <circle cx="272" cy="196" r="5.5" class="cyc-dot"/>
+        <circle cx="202" cy="272" r="5.5" class="cyc-dot"/>
+        <circle cx="118" cy="272" r="5.5" class="cyc-dot"/>
+        <circle cx="48"  cy="196" r="5.5" class="cyc-dot"/>
+        <text class="cyc-jp" x="160" y="24" text-anchor="middle">外構</text>
+        <text class="cyc-jp" x="288" y="188" text-anchor="middle">住まい</text>
+        <text class="cyc-jp" x="212" y="298" text-anchor="middle">清掃</text>
+        <text class="cyc-jp" x="108" y="298" text-anchor="middle">空気と水</text>
+        <text class="cyc-jp" x="32"  y="188" text-anchor="middle">肌</text>
+        <text class="cyc-label" x="160" y="154" text-anchor="middle">ONE COMPANY</text>
+        <text class="cyc-jp"    x="160" y="180" text-anchor="middle">ひと続きに</text>
+      </svg>
+    </div>
+    <div class="reveal" data-d="2">
+      <p class="eyebrow">Why Yuwa</p>
+      <h2 class="h2">つくって、直して、保つ<br>その全部を一社で</h2>
+      <p class="lead">
+        建てる会社、直す会社、掃除する会社。ふつうは別々です。
+        優和工業は、その境目をまたいで関わり続けます。
+        施工した外構がどう汚れるかを知っているから、掃除の勘所がわかる。
+        清掃で毎週建物を見ているから、傷みが小さいうちに直せる。
+      </p>
+      <ul class="cycle-notes">
+        <li><b>ONE STOP</b><span>外構・内装・清掃を一つの窓口で。業者間の調整と手戻りを減らします。</span></li>
+        <li><b>LOCAL</b><span>霧島市隼人町を拠点に、地域の気候と土地の癖を前提に計画します。</span></li>
+        <li><b>KEEP</b><span>引き渡しで終わらせず、清掃と保守で状態を保ち続けます。</span></li>
+        <li><b>DAILY</b><span>空気・水・肌にふれるものまで、暮らしの内側にも手が届きます。</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 仕事の風景 ============ -->
+<section class="sec works" id="works" data-rail="仕事 / WORKS">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:clamp(34px,5vw,60px)">
+      <p class="eyebrow">Works</p>
+      <h2 class="h2">仕事の風景</h2>
+      <p class="lead">現場は、いつも人の生活のすぐ隣にあります。音、粉じん、動線。工事のあいだも暮らしが続くことを前提に段取りを組みます。</p>
+    </div>
+    <div class="gal reveal" data-d="1">
+      <figure class="g1">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80"
+             onerror="this.onerror=null;this.src='https://picsum.photos/1200/800?grayscale';" alt="住宅の外観と前庭">
+        <figcaption>EXTERIOR ／ 外構・アプローチ</figcaption>
+      </figure>
+      <figure class="g2">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80"
+             onerror="this.onerror=null;this.src='https://picsum.photos/900/900?grayscale';" alt="改装された室内">
+        <figcaption>RENOVATION ／ 内装改修</figcaption>
+      </figure>
+      <figure class="g3">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=80"
+             onerror="this.onerror=null;this.src='https://picsum.photos/800/600?grayscale';" alt="清掃用具">
+        <figcaption>CLEANING ／ 定期清掃</figcaption>
+      </figure>
+      <figure class="g4">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80"
+             onerror="this.onerror=null;this.src='https://picsum.photos/801/600?grayscale';" alt="建物の外観">
+        <figcaption>BUILDING ／ 建物管理</figcaption>
+      </figure>
+      <figure class="g5">
+        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1000&q=80"
+             onerror="this.onerror=null;this.src='https://picsum.photos/802/600?grayscale';" alt="化粧品のパッケージ">
+        <figcaption>E-COMMERCE ／ 商品撮影</figcaption>
+      </figure>
+      <figure class="g6">
+        <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1600&q=80"
+             onerror="this.onerror=null;this.src='https://picsum.photos/1400/500?grayscale';" alt="霧のかかる樹林">
+        <figcaption>KIRISHIMA ／ 私たちの土地</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 代表メッセージ ============ -->
+<section class="sec msg" id="message" data-rail="代表挨拶 / MESSAGE">
+  <div class="wrap msg-grid">
+    <div class="msg-body reveal">
+      <p class="eyebrow">Message</p>
+      <h2 class="h2">小さな仕事を、丁寧に重ねて</h2>
+      <!-- ▼ 以下は草案です。必ず代表者ご本人の言葉に差し替え・ご確認をお願いします。 -->
+      <p>
+        私たちが引き受ける仕事は、派手なものではありません。
+        駐車場の勾配をわずかに変える。古い建具を入れ替える。毎週同じ場所を拭く。
+        どれも、終わってしまえば気づかれないような仕事です。
+      </p>
+      <p>
+        それでも、そうした一つひとつが積み重なって、
+        住む人や働く人の一日は少しずつ楽になります。
+        気づかれないことを、いい仕事の証だと思ってやってきました。
+      </p>
+      <p>
+        霧島の水が長い時間をかけて地層を通り、澄んで湧き出るように、
+        目の前の仕事をこつこつ続けることでしか届かない場所があると考えています。
+        この土地で、これからも変わらずやっていきます。
+      </p>
+      <div class="msg-sign">
+        <small>代表取締役</small>
+        <b>新窪 竜和</b>
+      </div>  
+    </div>
+    <div class="reveal" data-d="2">
+      <p class="msg-vert">気づかれないほど、<br>自然に。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 会社概要 ============ -->
+<section class="sec company" id="company" data-rail="会社概要 / COMPANY">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:clamp(28px,4vw,44px)">
+      <p class="eyebrow">Company</p>
+      <h2 class="h2">会社概要</h2>
+    </div>
+    <table class="tbl reveal" data-d="1">
+      <tbody>
+        <tr><th>商号</th><td>株式会社優和工業</td></tr>
+        <tr><th>代表者</th><td>代表取締役　新窪 竜和</td></tr>
+        <tr><th>所在地</th><td>〒899-5106　鹿児島県霧島市隼人町内山田三丁目1番37号</td></tr>
+        <tr><th>事業内容</th><td>
+          <ul>
+            <li>建設業（エクステリア外構工事）</li>
+            <li>リフォーム業</li>
+            <li>ビル等の建物清掃業</li>
+            <li>営業代行（空気清浄機・浄水器等）</li>
+            <li>国内ネットショップ運営（化粧品等）</li>
+          </ul>
+        </td></tr>
+        <!-- 
+        <tr><th>設立</th><td>—<span class="verify">要確認</span></td></tr>
+        <tr><th>資本金</th><td>—<span class="verify">要確認</span></td></tr>
+        <tr><th>従業員数</th><td>—<span class="verify">要確認</span></td></tr>
+        <tr><th>営業時間</th><td>—<span class="verify">要確認</span></td></tr>
+        
+         ▼ 許認可・法令表示：番号や登録の有無は必ず現物で確認のうえ記載してください。未取得の場合は該当行を削除してください。 
+        <tr><th>建設業許可</th><td>鹿児島県知事許可（般-　）第　　号<span class="verify">要確認</span><br>
+          <span style="font-size:12.5px">※ 500万円以上の工事を請け負う場合は建設業許可が必要です。許可区分・番号を確認のうえ記載してください。</span></td></tr>
+        <tr><th>清掃業の登録</th><td>建築物清掃業登録　第　　号<span class="verify">要確認</span><br>
+          <span style="font-size:12.5px">※ 建築物における衛生的環境の確保に関する法律に基づく都道府県知事登録。登録の有無をご確認ください。</span></td></tr>
+        <tr><th>ネットショップ関連</th><td>
+          特定商取引法に基づく表記 ／ 古物商許可 ／ 化粧品の取扱区分<span class="verify">要確認</span><br>
+          <span style="font-size:12.5px">※ 化粧品の販売形態（仕入販売・自社ブランド等）により必要な許可・届出および薬機法上の表現規制が異なります。公開前に確認をお願いします。</span></td></tr>
+        <tr><th>営業代行</th><td>
+          取扱メーカー・販売形態<span class="verify">要確認</span><br>
+          <span style="font-size:12.5px">※ 訪問販売・電話勧誘販売に該当する場合、特定商取引法上の表示義務があります。</span></td></tr>
+          -->
+      </tbody>
+    </table>
+
+    <div class="map-strip reveal" data-d="2">
+      <div>
+        <p class="addr">鹿児島県霧島市隼人町<br>内山田三丁目1番37号</p>
+        <p class="geo">KIRISHIMA-SHI, KAGOSHIMA 899-5106 ／ JAPAN</p>
+      </div>
+      <div>
+        <p style="font-size:13px;color:var(--washi-dim);margin:0">
+          天降川の下流、隼人の里に事務所を構えています。
+          霧島市内および姶良・国分エリアを中心に、鹿児島県内で施工・管理を行っています。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ フッター ============ -->
+<footer class="ftr">
+  <div class="ftr-in">
+    <div>
+      <div class="brand"><span class="jp">株式会社優和工業</span><span class="en">YUWA KOGYO INC.</span></div>
+      <p class="ftr-tag">水は、暮らしをめぐる。／ 霧島市隼人町</p>
+    </div>
+    <nav class="ftr-nav" aria-label="フッターナビゲーション">
+      <a href="#concept">PHILOSOPHY</a>
+      <a href="#business">BUSINESS</a>
+      <a href="#cycle">CYCLE</a>
+      <a href="#works">WORKS</a>
+      <a href="#message">MESSAGE</a>
+      <a href="#company">COMPANY</a>
+    </nav>
+  </div>
+  <p class="copy">© <span id="yr"></span> YUWA KOGYO INC. ALL RIGHTS RESERVED.</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- 年号 ---- */
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* ---- ヘッダー ---- */
+  var hdr = document.getElementById('hdr');
+  var nav = document.getElementById('nav');
+  var burger = document.getElementById('burger');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A' && nav.classList.contains('open')){
+      nav.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
+    }
+  });
+
+  /* ---- スクロールリビール ---- */
+  var els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold:0.14, rootMargin:'0px 0px -8% 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---- 天降川レール ---- */
+  var rail = document.getElementById('rail');
+  var flow = document.getElementById('railFlow');
+  var pathEl = document.getElementById('railPath');
+  var drop = document.getElementById('railDrop');
+  var halo = document.getElementById('railHalo');
+  var nodesG = document.getElementById('railNodes');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('[data-rail]'));
+  var railLen = 0, nodeData = [];
+
+  function buildRail(){
+    if(!pathEl.getTotalLength) return;
+    railLen = pathEl.getTotalLength();
+    flow.style.strokeDasharray = railLen;
+    flow.style.strokeDashoffset = railLen;
+
+    nodesG.innerHTML = '';
+    Array.prototype.slice.call(rail.querySelectorAll('.rail-label')).forEach(function(n){ n.remove(); });
+    nodeData = [];
+
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if(max <= 0) return;
+
+    sections.forEach(function(sec){
+      var frac = Math.min(0.97, Math.max(0.03, (sec.offsetTop - window.innerHeight*0.35) / max));
+      var pt = pathEl.getPointAtLength(railLen * frac);
+      var c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('cx', pt.x); c.setAttribute('cy', pt.y); c.setAttribute('r', 3.4);
+      c.setAttribute('class','node');
+      nodesG.appendChild(c);
+
+      var lb = document.createElement('span');
+      lb.className = 'rail-label';
+      lb.textContent = sec.getAttribute('data-rail');
+      lb.style.top = (pt.y / 800 * 100) + 'vh';
+      rail.appendChild(lb);
+
+      nodeData.push({ frac:frac, node:c, label:lb });
+    });
+  }
+
+  function updateRail(){
+    if(!railLen) return;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    flow.style.strokeDashoffset = railLen * (1 - p);
+    var pt = pathEl.getPointAtLength(railLen * p);
+    drop.setAttribute('cx', pt.x); drop.setAttribute('cy', pt.y);
+    halo.setAttribute('cx', pt.x); halo.setAttribute('cy', pt.y);
+    nodeData.forEach(function(n){
+      var lit = p >= n.frac - 0.005;
+      n.node.classList.toggle('lit', lit);
+      n.label.classList.toggle('lit', lit);
+    });
+  }
+
+  /* ---- 循環リング ---- */
+  var ring = document.getElementById('cycRing');
+  var ringLen = 2 * Math.PI * 118;
+  if(ring){
+    ring.style.strokeDasharray = ringLen;
+    ring.style.strokeDashoffset = ringLen;
+  }
+  function updateRing(){
+    if(!ring) return;
+    var sec = document.getElementById('cycle');
+    var r = sec.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var p = 1 - (r.top + r.height*0.25) / vh;
+    p = Math.min(1, Math.max(0, p));
+    ring.style.strokeDashoffset = ringLen * (1 - p);
+  }
+
+  /* ---- ヘッダー背景 ---- */
+  function updateHdr(){
+    hdr.classList.toggle('scrolled', window.scrollY > 40);
+  }
+
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function(){
+      updateHdr(); updateRail(); updateRing();
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', function(){ buildRail(); onScroll(); });
+  window.addEventListener('load', function(){ buildRail(); onScroll(); });
+  buildRail(); onScroll();
+
+  /* ---- ヒーローの霧（canvas） ---- */
+  var cv = document.getElementById('mist');
+  if(cv && !reduce){
+    var ctx = cv.getContext('2d');
+    var blobs = [], W = 0, H = 0, raf;
+    function size(){
+      var r = cv.getBoundingClientRect();
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = r.width; H = r.height;
+      cv.width = W * dpr; cv.height = H * dpr;
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    }
+    function init(){
+      blobs = [];
+      for(var i=0;i<7;i++){
+        blobs.push({
+          x: Math.random()*W, y: H*0.35 + Math.random()*H*0.6,
+          r: 130 + Math.random()*220,
+          vx: (Math.random()-0.5)*0.16,
+          vy: -0.02 - Math.random()*0.05,
+          a: 0.035 + Math.random()*0.05
+        });
+      }
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      blobs.forEach(function(b){
+        b.x += b.vx; b.y += b.vy;
+        if(b.x < -b.r) b.x = W + b.r;
+        if(b.x > W + b.r) b.x = -b.r;
+        if(b.y < -b.r) { b.y = H + b.r; b.x = Math.random()*W; }
+        var g = ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
+        g.addColorStop(0,'rgba(180,225,220,'+b.a+')');
+        g.addColorStop(1,'rgba(180,225,220,0)');
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,Math.PI*2); ctx.fill();
+      });
+      raf = requestAnimationFrame(draw);
+    }
+    size(); init(); draw();
+    window.addEventListener('resize', function(){ size(); init(); });
+    // ヒーローが画面外のときは停止
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(en){
+        if(en[0].isIntersecting){ if(!raf) raf = requestAnimationFrame(draw); }
+        else { cancelAnimationFrame(raf); raf = null; }
+      }, {threshold:0}).observe(cv);
+    }
+  }
+})();
+</script>
+</body>
+</html>
